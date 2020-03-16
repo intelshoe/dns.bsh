@@ -1,0 +1,30 @@
+#!/bin/bash
+# Simple script to show DNS of domain
+# Put in current dir and use like: bash dns.bsh domain.com
+# by Ryan Willis - info@rainforestpuppy.net
+
+# add blank lines for readability
+echo
+echo
+
+# first display host server info
+ip=$( dig A +short $1 )
+host=$( host $ip )
+echo Hostname: $host
+echo Host IP: $ip
+echo
+
+# show nameservers
+names=$( dig ns +short $1 )
+echo Nameservers are: $names
+echo
+
+# show mx record
+mx=$( dig mx +short $1 )
+echo MX record points to: $mx
+echo
+
+# show spf record
+spf=$( dig txt +short $1 )
+echo SPF: $spf
+echo
