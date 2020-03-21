@@ -5,7 +5,6 @@
 
 # add blank lines for readability
 echo
-echo
 
 # first display host server info
 ip=$( dig A +short $1 )
